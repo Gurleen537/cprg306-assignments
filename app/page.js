@@ -20,7 +20,13 @@ export default function Page() {
         Week 3 Assignment
       </Link>
       <br />
-      </main>
+      <Link
+        href="week-4"
+        className="text-xl pl-56 hover:text-sky-500 hover:underline"
+      >
+        Week 4 Assignment
+      </Link>
+    </main>
 );
       }
 
