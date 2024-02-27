@@ -30,7 +30,7 @@ export default function ItemList({ items }) {
         items: groupedItems[category].sort((a, b) => a.name.localeCompare(b.name))
       }));
     }
-    
+    // Return itemsData by default
     return itemsData;
   };
 

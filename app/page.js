@@ -35,8 +35,6 @@ export default function Page() {
       </Link>
       <br />
     </main>
-
-
 );
-      }
+     }
 
