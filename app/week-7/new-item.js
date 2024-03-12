@@ -5,7 +5,7 @@ import Item from "./item";
 
 export default function NewItem({ onAddItem }) {
   const [name, setName] = useState("");
-  const [quantity, setQauntity] = useState(0);
+  const [quantity, setQuantity] = useState(0);
   const [category, setCategory] = useState("produce");
 
   function handleSubmit(event) {
@@ -17,7 +17,7 @@ export default function NewItem({ onAddItem }) {
     onAddItem(item);
 
     setName("");
-    setQauntity(0);
+    setQuantity(0);
     setCategory("produce");
   }
 
@@ -45,7 +45,7 @@ export default function NewItem({ onAddItem }) {
           type="text"
           id="quantity"
           value={quantity}
-          onChange={(e) => setQauntity(e.target.value)}
+          onChange={(e) => setQuantity(e.target.value)}
         />
 
         <label htmlFor="category">Category</label>
