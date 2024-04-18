@@ -1,74 +1,73 @@
 "use client";
+
 import { useState } from "react";
 
-export default function NewItem(onAddItem) {
-  const [name, setName] = useState(" ");
+export default function NewItem({ onAddItem }) {
+  const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
-  const [category, setCategory] = useState("Produce");
+  const [category, setCategory] = useState("produce");
 
-  const handleSubmit = (event) => {
+  function handleSubmit(event) {
     event.preventDefault();
-    const item = {
-      name,
-      quantity,
-      category,
-    };
-    // const newItem = { id, name, quantity, category };
-    // onAddItem(newItem);
-    onAddItem({ id, name, quantity, category });
+    const newId = Math.floor(Math.random() * 1000000);
+    const item = { id: newId, name, quantity, category };
+    onAddItem(item);
+    
     setName("");
     setQuantity(1);
-    setCategory("Produce");
-  };
-  const newId = Math.floor(Math.random() * 1000000);
+    setCategory("produce");
+  }
 
   return (
-    <main class="flex justify-center">
-      <form onSubmit={handleSubmit} className="m-4 p-4 bg-slate-800 text-black">
-        <div>
+    <main className="w-full">
+      <strong className="text-xl m-4 font-bold">Add New Item</strong>
+      <br />
+      <form
+        onSubmit={handleSubmit}
+        className="text-black max-w-sm p-2 mt-0 ml-2 mb-4 mr-4 w-full"
+      >
+        <div className="mb-2">
           <input
             type="text"
             value={name}
             onChange={(event) => setName(event.target.value)}
-            placeholder="Item Name"
             required
-            className="text-black m-4 inline-block border rounded-md font-medium p-3 shadow-xl pr-32"
+            placeholder="Item name"
+            className="w-full mt-1 border-2 border-gray-300 p-2 rounded-lg"
           />
         </div>
         <div className="flex justify-between">
           <input
             type="number"
-            value={quantity}
             min="1"
             max="99"
+            value={quantity}
             onChange={(event) => setQuantity(event.target.value)}
             required
-            className="text-black m-4  inline-block border rounded-md font-medium p-3 shadow-xl"
+            className="w-20 ml-1 border-2 border-gray-300 p-2 rounded-lg"
           />
           <select
             value={category}
             onChange={(event) => setCategory(event.target.value)}
-            className="text-black m-4  inline-block border rounded-md font-medium p-3 shadow-xl"
+            className="ml-1 border-2 border-gray-300 p-2 rounded-lg"
           >
-            <option value disabled>
-              Category
-            </option>
-            <option value="Produce">Produce</option>
-            <option value="Dairy">Dairy</option>
-            <option value="Bakery">Bakery</option>
-            <option value="Meat">Meat</option>
-            <option value="Frozen Foods">Frozen Foods</option>
-            <option value="Canned Goods">Canned Goods</option>
-            <option value="Dry Goods">Dry Goods</option>
-            <option value="Beverages">Beverages</option>
-            <option value="Snacks">Snacks</option>
-            <option value="HouseHold">HouseHold</option>
-            <option value="Other">Other</option>
+            <option disabled>Category</option>
+            <option value="produce">Produce</option>
+            <option value="dairy">Dairy</option>
+            <option value="bakery">Bakery</option>
+            <option value="meat">Meat</option>
+            <option value="frozen foods">Frozen Foods</option>
+            <option value="canned goods">Canned Goods</option>
+            <option value="dry goods">Dry Goods</option>
+            <option value="beverages">Beverages</option>
+            <option value="snacks">Snacks</option>
+            <option value="household">Household</option>
+            <option value="other">Other</option>
           </select>
         </div>
         <button
           type="submit"
-          className="bg-blue-400 border pl-36 pr-36 flex p-1 rounded-md m-6"
+          className="bg-blue-500 text-white font-semibold rounded-lg w-full mt-4 py-2 px-4 hover:bg-blue-700"
         >
           +
         </button>
@@ -76,6 +75,7 @@ export default function NewItem(onAddItem) {
     </main>
   );
 }
+
   
 
 
