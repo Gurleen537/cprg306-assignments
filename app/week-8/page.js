@@ -4,7 +4,7 @@ import { useUserAuth } from "./_utils/auth-context";
 import Link from "next/link";
 
 export default function Page() {
-  const { user, gitHubSignIn, firebaseSignOut } = getAnalytics();
+  const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
 
   return (
     <div>
